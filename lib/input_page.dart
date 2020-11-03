@@ -8,7 +8,6 @@ const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
 const bottomCardColor = Color(0xFFEB1555);
 
-
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -28,11 +27,14 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(
-                      colour: activeCardColor,
-                      cardChild: GenderCardColumn(
-                        cardIcon: FontAwesomeIcons.mars,
-                        cardText: 'MALE',
+                    child: GestureDetector(
+                      
+                      child: ReusableCard(
+                        colour: inactiveCardColor,
+                        cardChild: GenderCardColumn(
+                          cardIcon: FontAwesomeIcons.mars,
+                          cardText: 'MALE',
+                        ),
                       ),
                     ),
                   ),
@@ -42,7 +44,7 @@ class _InputPageState extends State<InputPage> {
                         cardIcon: FontAwesomeIcons.venus,
                         cardText: 'FEMALE',
                       ),
-                      colour: activeCardColor,
+                      colour: inactiveCardColor,
                     ),
                   ),
                 ],
