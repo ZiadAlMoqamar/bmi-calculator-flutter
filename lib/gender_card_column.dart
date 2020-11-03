@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-const activeCardTextColor = 0xFF8D8E98;
+const labelTextStyle = TextStyle(
+  fontSize: 18.0,
+  color: Color(0xFF8D8E98),
+);
 
 class GenderCardColumn extends StatelessWidget {
   GenderCardColumn({this.cardIcon, this.cardText});
@@ -21,10 +24,7 @@ class GenderCardColumn extends StatelessWidget {
         ),
         Text(
           cardText,
-          style: TextStyle(
-            fontSize: 18.0,
-            color: Color(activeCardTextColor),
-          ),
+          style: labelTextStyle,
         )
       ],
     );
