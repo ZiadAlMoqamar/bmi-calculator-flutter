@@ -4,8 +4,9 @@ import 'gender_card_column.dart';
 import 'reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
-const activeCardColor = 0xFF1D1E33;
-const bottomCardColor = 0xFFEB1555;
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
+const bottomCardColor = Color(0xFFEB1555);
 
 
 class InputPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      colour: Color(activeCardColor),
+                      colour: activeCardColor,
                       cardChild: GenderCardColumn(
                         cardIcon: FontAwesomeIcons.mars,
                         cardText: 'MALE',
@@ -41,7 +42,7 @@ class _InputPageState extends State<InputPage> {
                         cardIcon: FontAwesomeIcons.venus,
                         cardText: 'FEMALE',
                       ),
-                      colour: Color(activeCardColor),
+                      colour: activeCardColor,
                     ),
                   ),
                 ],
@@ -49,7 +50,7 @@ class _InputPageState extends State<InputPage> {
             ),
             Expanded(
               child: ReusableCard(
-                colour: Color(activeCardColor),
+                colour: activeCardColor,
               ),
             ),
             Expanded(
@@ -57,12 +58,12 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      colour: Color(activeCardColor),
+                      colour: activeCardColor,
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      colour: Color(activeCardColor),
+                      colour: activeCardColor,
                     ),
                   ),
                 ],
@@ -71,7 +72,7 @@ class _InputPageState extends State<InputPage> {
             Container(
               margin: EdgeInsets.only(top: 10.0),
               width: double.infinity,
-              color: Color(bottomCardColor),
+              color: bottomCardColor,
               height: bottomContainerHeight,
             )
           ],
