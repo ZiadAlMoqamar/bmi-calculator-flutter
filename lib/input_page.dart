@@ -14,6 +14,29 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+  
+// 1 for male, 2 for female
+  void updateColor(int genderChoice) {
+    if (genderChoice == 1) {
+      if (maleCardColor == inactiveCardColor) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        maleCardColor = inactiveCardColor;
+      }
+    } if(genderChoice == 2) {
+      if (femaleCardColor == inactiveCardColor) {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      } else {
+        femaleCardColor = inactiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +51,13 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      
+                      onTap: () {
+                        setState(() {
+                          updateColor(1);
+                        });
+                      },
                       child: ReusableCard(
-                        colour: inactiveCardColor,
+                        colour: maleCardColor,
                         cardChild: GenderCardColumn(
                           cardIcon: FontAwesomeIcons.mars,
                           cardText: 'MALE',
@@ -39,12 +66,19 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(
-                      cardChild: GenderCardColumn(
-                        cardIcon: FontAwesomeIcons.venus,
-                        cardText: 'FEMALE',
+                    child: GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          updateColor(2);
+                        });
+                      },
+                      child: ReusableCard(
+                        cardChild: GenderCardColumn(
+                          cardIcon: FontAwesomeIcons.venus,
+                          cardText: 'FEMALE',
+                        ),
+                        colour: femaleCardColor,
                       ),
-                      colour: inactiveCardColor,
                     ),
                   ),
                 ],
