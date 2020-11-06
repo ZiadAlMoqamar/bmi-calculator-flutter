@@ -221,25 +221,39 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            GestureDetector(
+            BottomButton(
+              buttonTitle: 'CALCULATE',
               onTap: () {
                 Navigator.pushNamed(context, '/results');
               },
-              child: Container(
-                child: Center(
-                  child: Text(
-                    'CALCULATE',
-                    style: kLargeButtonTesxtStyle,
-                  ),
-                ),
-                margin: EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                color: kBottomCardColor,
-                height: kBottomContainerHeight,
-              ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class BottomButton extends StatelessWidget {
+  BottomButton({@required this.onTap, @required this.buttonTitle});
+  final Function onTap;
+  final String buttonTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        child: Center(
+          child: Text(
+            buttonTitle,
+            style: kLargeButtonTesxtStyle,
+          ),
+        ),
+        margin: EdgeInsets.only(top: 10.0),
+        width: double.infinity,
+        color: kBottomCardColor,
+        height: kBottomContainerHeight,
       ),
     );
   }

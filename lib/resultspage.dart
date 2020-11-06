@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:bmi_calculator/input_page.dart';
+
 import 'constants.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/reusable_card.dart';
@@ -12,6 +14,7 @@ class ResultsPage extends StatelessWidget {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Expanded(
@@ -28,43 +31,25 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    'OVERWEIGHT',
-                    style: TextStyle(
-                        color: Color(0xFF48A666),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25.0),
-                  ),
+                  Text('OVERWEIGHT', style: kResultTextStyle),
                   Text(
                     '26.7',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),
+                    style: kBMITextStyle,
                   ),
                   Text(
                     'You have a higher than normal cody weight. Try to exercise more.',
-                    style: TextStyle(fontSize: 25.0),
+                    style: kBodyTextStyle,
+                    textAlign: TextAlign.center,
                   )
                 ],
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/');
-            },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'RECALCULATE',
-                  style: kLargeButtonTesxtStyle,
-                ),
-              ),
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              color: kBottomCardColor,
-              height: kBottomContainerHeight,
-            ),
-          )
+          BottomButton(
+              onTap: () {
+                Navigator.pushNamed(context, '/');
+              },
+              buttonTitle: 'RECALCULATE')
         ],
       ),
     );
