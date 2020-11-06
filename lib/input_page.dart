@@ -1,10 +1,11 @@
 import 'dart:ui';
-
+import 'buttom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'gender_card_column.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'round_icon_button.dart';
 
 enum Gender { male, female }
 
@@ -234,46 +235,6 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class BottomButton extends StatelessWidget {
-  BottomButton({@required this.onTap, @required this.buttonTitle});
-  final Function onTap;
-  final String buttonTitle;
 
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        child: Center(
-          child: Text(
-            buttonTitle,
-            style: kLargeButtonTesxtStyle,
-          ),
-        ),
-        margin: EdgeInsets.only(top: 10.0),
-        width: double.infinity,
-        color: kBottomCardColor,
-        height: kBottomContainerHeight,
-      ),
-    );
-  }
-}
 
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({@required this.icon, @required this.onPressed});
 
-  final IconData icon;
-  final Function onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      child: Icon(icon),
-      elevation: 0.0,
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      shape: CircleBorder(),
-    );
-  }
-}
