@@ -6,6 +6,15 @@ import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,13 +40,13 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('OVERWEIGHT', style: kResultTextStyle),
+                  Text(resultText.toUpperCase(), style: kResultTextStyle),
                   Text(
-                    '26.7',
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'You have a higher than normal cody weight. Try to exercise more.',
+                    interpretation,
                     style: kBodyTextStyle,
                     textAlign: TextAlign.center,
                   )
@@ -45,11 +54,9 @@ class ResultsPage extends StatelessWidget {
               ),
             ),
           ),
-          BottomButton(
-              onTap: () {
-                Navigator.pushNamed(context, '/');
-              },
-              buttonTitle: 'RE-CALCULATE')
+          BottomButton(onTap: () {
+            Navigator.pop(context);
+          }, buttonTitle: 'RE-CALCULATE')
         ],
       ),
     );
