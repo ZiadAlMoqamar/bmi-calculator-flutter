@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'gender_card_column.dart';
@@ -121,14 +123,23 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('WEIGHT', style: kLabelTextStyle,),
+                          Text(
+                            'WEIGHT',
+                            style: kLabelTextStyle,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.baseline,
                             textBaseline: TextBaseline.alphabetic,
                             children: [
-                              Text(weight.toString(), style: kNumberTextStyle,),
-                              Text('KG', style: kLabelTextStyle,)
+                              Text(
+                                weight.toString(),
+                                style: kNumberTextStyle,
+                              ),
+                              Text(
+                                'KG',
+                                style: kLabelTextStyle,
+                              )
                             ],
                           ),
                           Row(
@@ -136,23 +147,28 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
-                               onPressed: (){
-                                 setState(() {
-                                   weight --;
-                                 });
-                               },),
-                               SizedBox(width: 10.0,),
-                               RoundIconButton(
-                                 icon: FontAwesomeIcons.plus,
-                                 onPressed: (){
-                                   setState(() {
-                                     weight ++;
-                                   });
-                                 },
-                               )
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                              )
                             ],
                           ),
-                          SizedBox(height: 5.0,)
+                          SizedBox(
+                            height: 5.0,
+                          )
                         ],
                       ),
                     ),
@@ -163,30 +179,41 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('AGE', style: kLabelTextStyle,),
-                          Text(age.toString(), style: kNumberTextStyle,),
+                          Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            age.toString(),
+                            style: kNumberTextStyle,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
-                               onPressed: (){
-                                 setState(() {
-                                   age --;
-                                 });
-                               },),
-                               SizedBox(width: 10.0,),
-                               RoundIconButton(
-                                 icon: FontAwesomeIcons.plus,
-                                 onPressed: (){
-                                   setState(() {
-                                     age ++;
-                                   });
-                                 },
-                               )
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                              )
                             ],
                           ),
-                          SizedBox(height: 5.0,)
+                          SizedBox(
+                            height: 5.0,
+                          )
                         ],
                       ),
                     ),
@@ -194,11 +221,22 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              color: kBottomCardColor,
-              height: kBottomContainerHeight,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/results');
+              },
+              child: Container(
+                child: Center(
+                    child: Text('CALCULATE',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w900))),
+                margin: EdgeInsets.only(top: 10.0),
+                width: double.infinity,
+                color: kBottomCardColor,
+                height: kBottomContainerHeight,
+              ),
             )
           ],
         ),
